@@ -7,7 +7,7 @@ Version: 1.0
 Author: EngineThemes
 Author URI: http://enginethemes.com/
 License: A "Slug" license name e.g. GPL2
-Text Domain: mjeawd
+Text Domain: ae_debug
 */
 
 
