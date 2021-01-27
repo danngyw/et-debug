@@ -3,7 +3,7 @@
 Plugin Name: Fre Debug
 Plugin URI: http://enginethemes.com/
 Description: This plugin allows sellers to send withdrawal requests automatically.
-Version: 1.0.1
+Version: 1.0
 Author: EngineThemes
 Author URI: http://enginethemes.com/
 License: A "Slug" license name e.g. GPL2
