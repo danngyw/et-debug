@@ -41,7 +41,7 @@ function fre_debug_show_db_table(){
 		</div>
 		<ul>
 			<?php if(file_exists(FRE_TRACK_PAYMENT_PATH) ){ ?>
-			<li><a href="<?php echo $trackPaymentLink;?>" target="_blank"> Track Payment</a> | <a class="actDelTrack" href="<?php home_url();?>/?act=deltrack" target="_blank"> <i class="fa fa-times" aria-hidden="true"></i></a>
+			<li><a href="<?php echo $trackPaymentLink;?>" target="_blank"> Track Payment</a>  <a class="actDelTrack" href="<?php home_url();?>/?act=deltrack" target="_blank"> <i class="fa fa-trash" aria-hidden="true"></i></a>
 				</li>
 			<?php } ?>
 		</ul>
