@@ -31,10 +31,10 @@ function fre_debug_show_db_table(){
 		</div>
 		<ul>
 			<li><a href="<?php echo $trackPaymentLink;?>" target="_blank"> Track Payment</a>
+				<li><a href="<?php home_url();?>/?act=deltrack" target="_blank"> Delete Track </a>
 		</ul>
 	</div>
 	<?php
-	echo 'this is debug<br />';
 
 	$path = "D:\Xampp\htdocs\et/wp-content/uploads/sites/3/2021/01/avatar_admin-3.png";
 	$path = "http://localhost/et/fre/wp-content/uploads/sites/3/2021/01/avatar_admin-3.png";
@@ -61,6 +61,12 @@ function fre_debug_show_db_table(){
 			continue;
 		}
 		echo ' Page '.$slug.' did not created <br />';
+	}
+
+	$act = isset($_GET['act']) ? $_GET['act'] :'';
+	if( $act == 'deltrack' ){
+		$trackPaymentPath = WP_CONTENT_DIR.'/fre_track_payment.css';
+		unlink($trackPaymentPath);
 	}
 
 }
