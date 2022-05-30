@@ -10,6 +10,10 @@ License: A "Slug" license name e.g. GPL2
 Text Domain: mjeawd
 */
 
+define( 'FRE_DEBUG_PATH', dirname( __FILE__ ) );
+define( 'FRE_DEBUG_URL', plugin_dir_url( __FILE__ ) );
+
+require_once FRE_MEMBERSHIP_PATH . '/inc/enque_style.php';
 
 function fre_debug_show_db_table(){
 
