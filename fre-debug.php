@@ -14,8 +14,17 @@ Text Domain: ae_debug
 define( 'FRE_DEBUG_PATH', dirname( __FILE__ ) );
 define( 'FRE_DEBUG_URL', plugin_dir_url( __FILE__ ) );
 
+define('FRE_TRACK_PAYMENT_PATH', WP_CONTENT_DIR.'/fre_track_payment.css');
+
 require_once FRE_DEBUG_PATH . '/inc/enque_style.php';
 
+
+function fre_debug_del_files(){
+	$act = isset($_GET['act']) ? $_GET['act'] :'';
+	if( $act == 'deltrack' ){
+		unlink(FRE_TRACK_PAYMENT_PATH);
+	}
+}
 function fre_debug_show_db_table(){
 
 	global $wpdb;
@@ -24,14 +33,17 @@ function fre_debug_show_db_table(){
 	$trackPaymentLink = get_track_directory('url');
 	$trackPaymentPath = get_track_directory('path');
 	$trackPaymentLink 	= home_url().'/wp-content/fre_track_payment.css';
+	$trackPaymentPath = WP_CONTENT_DIR.'/fre_track_payment.css';
 	?>
 	<div class="debugBoard">
 		<div class="headerDebug">
 			<img src="<?php echo FRE_DEBUG_URL;?>/img/debug.jpg">
 		</div>
 		<ul>
-			<li><a href="<?php echo $trackPaymentLink;?>" target="_blank"> Track Payment</a>
-				<li><a href="<?php home_url();?>/?act=deltrack" target="_blank"> Delete Track </a>
+			<?php if(file_exists(FRE_TRACK_PAYMENT_PATH) ){ ?>
+			<li><a href="<?php echo $trackPaymentLink;?>" target="_blank"> Track Payment</a> | <a href="<?php home_url();?>/?act=deltrack" target="_blank"> Delete Track </a>
+				</li>
+			<?php } ?>
 		</ul>
 	</div>
 	<?php
@@ -39,8 +51,7 @@ function fre_debug_show_db_table(){
 	$path = "D:\Xampp\htdocs\et/wp-content/uploads/sites/3/2021/01/avatar_admin-3.png";
 	$path = "http://localhost/et/fre/wp-content/uploads/sites/3/2021/01/avatar_admin-3.png";
 
-	//$editor = wp_get_image_editor( $path );
-	//var_dump($editor);
+
 
 
 	$args = array(
@@ -63,11 +74,7 @@ function fre_debug_show_db_table(){
 		echo ' Page '.$slug.' did not created <br />';
 	}
 
-	$act = isset($_GET['act']) ? $_GET['act'] :'';
-	if( $act == 'deltrack' ){
-		$trackPaymentPath = WP_CONTENT_DIR.'/fre_track_payment.css';
-		unlink($trackPaymentPath);
-	}
+
 
 }
 add_action('wp_footer','fre_debug_show_db_table');

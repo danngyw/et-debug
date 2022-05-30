@@ -1,0 +1,32 @@
+.debugBoard{
+	position: fixed;
+    top: 35%;
+    left: 3px;
+    width: 150px;
+    padding: 0px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+.debugBoard ul{
+	padding: 0;
+	margin: 0;
+	margin-top: 0px;
+	border-top: 1px solid #ccc;
+	padding: 15px;
+}
+.debugBoard ul li{
+	list-style: none;
+	display: block;
+	margin: 0;
+}
+.headerDebug{
+	display: block;
+	text-align: center;
+	padding: 10px;
+}
+.debugBoard img{
+	width: 20px;
+	padding: 0px;
+	text-align: center;
+	padding: 0px;
+}
