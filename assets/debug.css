@@ -30,10 +30,18 @@
 	text-align: center;
 	padding: 0px;
 }
+.debugBoard li a{
+	vertical-align:baseline;
+}
 .actDelTrack{
 	margin-left: 10px;
-	color: #000;
-	border-radius: 50%;
-	border: 1px solid #ccc;
-	padding: 5px;
+    color: #000;
+    border-radius: 50%;
+    padding: 3px;
+    width: 23px;
+    height: 23px;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+    vertical-align: baseline;
 }
