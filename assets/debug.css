@@ -2,7 +2,7 @@
 	position: fixed;
     top: 35%;
     left: 3px;
-    width: 150px;
+    width: 190px;
     padding: 0px;
     border: 1px solid #ccc;
     border-radius: 2px;
@@ -29,4 +29,11 @@
 	padding: 0px;
 	text-align: center;
 	padding: 0px;
+}
+.actDelTrack{
+	margin-left: 10px;
+	color: #000;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+	padding: 5px;
 }
