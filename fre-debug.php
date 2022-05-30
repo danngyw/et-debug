@@ -26,7 +26,7 @@ function fre_debug_del_files(){
 		unlink(FRE_TRACK_PAYMENT_PATH);
 	}
 }
-function fre_debug_show_db_table(){
+function fre_debug_show(){
 
 	global $wpdb;
 
@@ -86,5 +86,7 @@ function fre_debug_show_db_table(){
 		echo ' Page '.$slug.' did not created <br />';
 	}
 }
-add_action('wp_footer','fre_debug_show_db_table');
+if( current_user_can('manage_options') ){
+	add_action('wp_footer','fre_debug_show');
+}
 
