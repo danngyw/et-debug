@@ -1,10 +1,10 @@
 <?php
  /*
 Plugin Name: Fre Debug
-Plugin URI: http://enginethemes.com/
-Description: This plugin allows sellers to send withdrawal requests automatically.
-Version: 1.0.1
-Author: EngineThemes
+Plugin URI: http://danhoat@gmai.com/
+Description: Allow developer can easy debug the problem of FreelanceEngine site.
+Version: 1.0
+Author: danng
 Author URI: http://enginethemes.com/
 License: A "Slug" license name e.g. GPL2
 Text Domain: mjeawd
