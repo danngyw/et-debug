@@ -86,7 +86,10 @@ function fre_debug_show(){
 		echo ' Page '.$slug.' did not created <br />';
 	}
 }
-if( current_user_can('manage_options') ){
-	add_action('wp_footer','fre_debug_show');
+function  fre_debug_function(){
+	if( current_user_can('manage_options') ){
+		add_action('wp_footer','fre_debug_show');
+	}
 }
 
+add_action('after_setup_theme','fre_debug_function');
