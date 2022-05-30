@@ -35,6 +35,15 @@ function fre_debug_show_db_table(){
 	$trackPaymentLink 	= home_url().'/wp-content/fre_track_payment.css';
 	$trackPaymentPath = WP_CONTENT_DIR.'/fre_track_payment.css';
 	?>
+	<script type="text/javascript">
+		function debugRemoveFile(){
+			let text;
+			  if (confirm("Delete This file?") == true) {
+			    return true
+			  }
+			  return false;
+		}
+	</script>
 	<div class="debugBoard">
 		<div class="headerDebug">
 			Fre Debug Tool <img src="<?php echo FRE_DEBUG_URL;?>/img/debug.jpg">
@@ -42,7 +51,7 @@ function fre_debug_show_db_table(){
 		<ul>
 			<?php if(file_exists(FRE_TRACK_PAYMENT_PATH) ){ ?>
 			<li><a href="<?php echo $trackPaymentLink;?>" target="_blank"> Track Payment</a>
-				<a class="actDelTrack" href="<?php home_url();?>/?act=deltrack" target="_blank" rel="Del File" title="Delete File?"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+				<a class="actDelTrack" href="<?php home_url();?>/?act=deltrack" target="_blank" rel="Del File" title="Delete File?" onclick="return debugRemoveFile()"> <i class="fa fa-trash" aria-hidden="true"></i></a>
 				</li>
 			<?php } ?>
 		</ul>
@@ -74,9 +83,6 @@ function fre_debug_show_db_table(){
 		}
 		echo ' Page '.$slug.' did not created <br />';
 	}
-
-
-
 }
 add_action('wp_footer','fre_debug_show_db_table');
 
