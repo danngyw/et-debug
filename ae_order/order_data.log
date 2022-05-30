@@ -1,0 +1,52 @@
+$order_data = $order->get_order_data();
+
+$order_data =array(15) {
+  ["ID"]=>
+  int(680)
+  ["payer"]=>
+  string(1) "2"
+  ["product_id"]=>
+  string(0) ""
+  ["created_date"]=>
+  string(19) "2022-05-30 06:36:04"
+  ["status"]=>
+  string(7) "pending"
+  ["payment"]=>
+  string(6) "paypal"
+  ["products"]=>
+  array(1) {
+    ["ttt"]=>
+    array(6) {
+      ["ID"]=>
+      string(3) "ttt"
+      ["NAME"]=>
+      string(14) "deposit pack 1"
+      ["AMT"]=>
+      string(2) "15"
+      ["QTY"]=>
+      int(1)
+      ["L_DESC"]=>
+      string(31) "<p>Test shorrt description</p>
+"
+      ["TYPE"]=>
+      string(15) "fre_credit_plan"
+    }
+  }
+  ["currency"]=>
+  string(3) "USD"
+  ["payment_code"]=>
+  string(0) ""
+  ["total"]=>
+  string(5) "15.00"
+  ["paid_date"]=>
+  string(0) ""
+  ["shipping"]=>
+  array(0) {
+  }
+  ["payment_package"]=>
+  string(3) "ttt"
+  ["payment_plan"]=>
+  string(3) "ttt"
+  ["version"]=>
+  string(0) ""
+}

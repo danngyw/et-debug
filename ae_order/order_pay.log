@@ -1,0 +1,55 @@
+$order_pay = $order->generate_data_to_pay();
+array(17) {
+  ["payment_code"]=>
+  string(0) ""
+  ["ID"]=>
+  int(680)
+  ["payer"]=>
+  string(1) "2"
+  ["currencyCodeType"]=>
+  string(3) "USD"
+  ["products"]=>
+  array(1) {
+    ["ttt"]=>
+    array(6) {
+      ["ID"]=>
+      string(3) "ttt"
+      ["NAME"]=>
+      string(14) "deposit pack 1"
+      ["AMT"]=>
+      string(2) "15"
+      ["QTY"]=>
+      int(1)
+      ["L_DESC"]=>
+      string(31) "<p>Test shorrt description</p>
+"
+      ["TYPE"]=>
+      string(15) "fre_credit_plan"
+    }
+  }
+  ["total"]=>
+  string(5) "15.00"
+  ["total_before_discount"]=>
+  NULL
+  ["ship"]=>
+  array(0) {
+  }
+  ["payment"]=>
+  string(6) "paypal"
+  ["payer_id"]=>
+  NULL
+  ["coupon_code"]=>
+  string(0) ""
+  ["discount_rate"]=>
+  string(0) ""
+  ["discount_method"]=>
+  string(7) "percent"
+  ["currency_code"]=>
+  string(3) "USD"
+  ["payment_package"]=>
+  string(3) "ttt"
+  ["order_name"]=>
+  NULL
+  ["product_id"]=>
+  string(0) ""
+}

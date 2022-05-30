@@ -12,9 +12,9 @@ function fre_debug_order(){
 
 	echo '<pre>';
 	//var_dump($order_type);
-	//var_dump($order_p);
-	var_dump($order_data);
-	$sku = $order_data['payment_package'];
+	//var_dump($order_data);
+	var_dump($order_pay);
+
 	echo '</pre>';
 
 
@@ -23,4 +23,4 @@ function fre_debug_order(){
 	//$order_data = $order_pay->generate_data_to_pay();
 
 }
-//  add_action('wp_head','fre_debug_order');
+ add_action('wp_head','fre_debug_order');
