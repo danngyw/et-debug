@@ -14,13 +14,26 @@ Text Domain: ae_debug
 define( 'FRE_DEBUG_PATH', dirname( __FILE__ ) );
 define( 'FRE_DEBUG_URL', plugin_dir_url( __FILE__ ) );
 
-require_once FRE_MEMBERSHIP_PATH . '/inc/enque_style.php';
+require_once FRE_DEBUG_PATH . '/inc/enque_style.php';
 
 function fre_debug_show_db_table(){
 
 	global $wpdb;
 
-	echo '<pre>';
+
+	$trackPaymentLink = get_track_directory('url');
+	$trackPaymentPath = get_track_directory('path');
+	$trackPaymentLink 	= home_url().'/wp-content/fre_track_payment.css';
+	?>
+	<div class="debugBoard">
+		<div class="headerDebug">
+			<img src="<?php echo FRE_DEBUG_URL;?>/img/debug.jpg">
+		</div>
+		<ul>
+			<li><a href="<?php echo $trackPaymentLink;?>" target="_blank"> Track Payment</a>
+		</ul>
+	</div>
+	<?php
 	echo 'this is debug<br />';
 
 	$path = "D:\Xampp\htdocs\et/wp-content/uploads/sites/3/2021/01/avatar_admin-3.png";
@@ -35,8 +48,7 @@ function fre_debug_show_db_table(){
 		'"mime_type' => 'image/png',
 	);
 	$implementation = _wp_image_editor_choose( $args ); // WP_Image_Editor_Imagick WP_Image_Editor_GD
-;
-	echo '</pre>';
+
 
 	$slugs = array('register' ,'login' ,'profile' ,'reset-pass','forgot-password','process-payment','submit-project','my-project','list-notification','upgrade-account');
 	foreach ($slugs as $slug) {
