@@ -29,6 +29,7 @@ function fre_debug_show_db_table(){
 
 	global $wpdb;
 
+	fre_debug_del_files();
 
 	$trackPaymentLink = get_track_directory('url');
 	$trackPaymentPath = get_track_directory('path');
