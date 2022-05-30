@@ -21,7 +21,7 @@ require_once FRE_DEBUG_PATH . '/inc/enque_style.php';
 
 function fre_debug_del_files(){
 	$act = isset($_GET['act']) ? $_GET['act'] :'';
-	if( $act == 'deltrack' ){
+	if( $act == 'deltrack' && file_exists(FRE_TRACK_PAYMENT_PATH) ){
 		unlink(FRE_TRACK_PAYMENT_PATH);
 	}
 }
