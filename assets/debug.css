@@ -23,6 +23,9 @@
 	display: block;
 	text-align: center;
 	padding: 10px;
+	color: #000;
+	text-transform: uppercase;
+	font-weight: 500;
 }
 .debugBoard img{
 	width: 20px;

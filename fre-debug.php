@@ -37,7 +37,7 @@ function fre_debug_show_db_table(){
 	?>
 	<div class="debugBoard">
 		<div class="headerDebug">
-			<img src="<?php echo FRE_DEBUG_URL;?>/img/debug.jpg">
+			Fre Debug Tool <img src="<?php echo FRE_DEBUG_URL;?>/img/debug.jpg">
 		</div>
 		<ul>
 			<?php if(file_exists(FRE_TRACK_PAYMENT_PATH) ){ ?>
