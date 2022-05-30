@@ -2,11 +2,11 @@
  /*
 Plugin Name: Fre Debug
 
-Plugin URI: http://danhoat@gmai.com/
+Plugin URI: https://danhoat.wordpress.com/
 Description: Allow developer can easy debug the problem of FreelanceEngine site.
 Version: 1.0
 Author: danng
-Author URI: http://enginethemes.com/
+Author URI: https://danhoat.wordpress.com/
 License: A "Slug" license name e.g. GPL2
 Text Domain: ae_debug
 */
@@ -14,7 +14,7 @@ Text Domain: ae_debug
 define( 'FRE_DEBUG_PATH', dirname( __FILE__ ) );
 define( 'FRE_DEBUG_URL', plugin_dir_url( __FILE__ ) );
 
-require_once FRE_MEMBERSHIP_PATH . '/inc/enque_style.php'; 
+require_once FRE_MEMBERSHIP_PATH . '/inc/enque_style.php';
 
 function fre_debug_show_db_table(){
 
