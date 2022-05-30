@@ -17,6 +17,7 @@ define( 'FRE_DEBUG_URL', plugin_dir_url( __FILE__ ) );
 define('FRE_TRACK_PAYMENT_PATH', WP_CONTENT_DIR.'/fre_track_payment.css');
 
 require_once FRE_DEBUG_PATH . '/inc/enque_style.php';
+require_once FRE_DEBUG_PATH . '/inc/debug_order.php';
 
 
 function fre_debug_del_files(){
