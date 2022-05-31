@@ -1,6 +1,6 @@
 <?php
  /*
-Plugin Name: Fre Debug
+Plugin Name: AE Debug
 
 Plugin URI: https://danhoat.wordpress.com/
 Description: Allow developer can easy debug the problem of FreelanceEngine site.
@@ -21,6 +21,41 @@ require_once FRE_DEBUG_PATH . '/inc/debug_order.php';
 require_once FRE_DEBUG_PATH . '/functions.php';
 
 
+
+
+/**
+ * Activate the plugin.
+ */
+function ae_debug_create_page(){
+	$args = array(
+		'post_type' 	=> 'page',
+		'post_title' 	=> 'Debug Page',
+		'post_content' 	=> '[ae_debug]',
+		'post_status' 	=> 'publish',
+	);
+	$id = wp_insert_post($args);
+	if( $id && !is_wp_error($id) ){
+		update_option('debug_id_page', $id);
+	}
+}
+function ae_debug_activate() {
+	$debug = get_option('debug_id_page', false);
+
+	if( empty($debug) || !$debug ){
+		ae_debug_create_page();
+	} else{
+
+		$page = get_post($debug);
+		if( !$page || is_wp_error($page)  ){
+			ae_debug_create_page();
+		} else if( $page->post_status !== 'publish'){
+			$args = array('ID' => $page->ID, 'post_status' => 'publish');
+			wp_update_post($args);
+		}
+	}
+}
+register_activation_hook( __FILE__, 'ae_debug_activate' );
+
 function  fre_debug_function(){
 	require_once FRE_DEBUG_PATH . '/inc/filter.php';
 	require_once FRE_DEBUG_PATH . '/inc/hook_action.php';
@@ -31,34 +66,3 @@ function  fre_debug_function(){
 }
 
 add_action('after_setup_theme','fre_debug_function');
-
-/**
- * Activate the plugin.
- */
-function ae_debug_create_page(){
-	$args = array(
-		'post_type' => 'page',
-		'post_title' => 'Debug Page',
-		'post_content' => '[ae_debug]',
-	);
-	$id = wp_insert_post($args);
-	if( $id && !is_wp_error($id) ){
-		update_option('debug_id_page', $id);
-	}
-}
-function ae_debug_activate() {
-	$debug = get_option('debug_id_page', true);
-	if( empty($debug) || !$debug ){
-		debug_log('page no exist.');
-		debug_log('create new page.');
-		ae_debug_create_page();
-	} else{
-		$page = get_post($debug);
-		if( !$page or is_wp_error($page) ){
-			debug_log('page removed.');
-			debug_log('create new page.');
-			ae_debug_create_page();
-		}
-	}
-}
-register_activation_hook( __FILE__, 'ae_debug_activate' );
