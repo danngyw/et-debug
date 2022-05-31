@@ -56,3 +56,24 @@
     vertical-align: baseline;
     float: right;
 }
+.debugForm {
+    border-radius: 3px;
+    background-color: #fff;
+    padding: 15px 15px 40px 15px;
+    border: 1px solid #e9e9e9;
+}
+.debugForm h3 {
+    font-size: 19px;
+    margin-bottom: 26px;
+    color: #3f3f3f;
+}
+.debugForm label{
+	margin-right: 30px;
+}
+.debugForm .form-control{
+	width: 150px;
+}
+.debugForm .btn-submit{
+	position: relative;
+	left: 15px;
+}

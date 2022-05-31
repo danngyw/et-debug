@@ -17,7 +17,7 @@ function ae_debug_shortcode( $atts ) {
             'view' => 'detail',
         ), $debug_page );
 
-            $html = '<form class="form-inline" action="'.$action.'" method="get"><h3> Tim kiếm order</h3>
+            $html = '<form class="form-inline debugForm" action="'.$action.'" method="get"><h3> Tim kiếm order</h3>
 
           <div class="form-group mx-sm-5 mb-5">
             <label for="inputPassword2" >Order ID</label>
@@ -27,7 +27,7 @@ function ae_debug_shortcode( $atts ) {
 
             <input type="number" class="form-control"  name="order_id" placeholder="Order ID" value="'.$order_id.'">
           </div>
-          <button type="submit" class="btn btn-primary mb-2">Tìm Kiếm</button>
+          <button type="submit" class="btn btn-primary btn-submit">Tìm Kiếm</button>
         </form> ';
         if( $view == 'detail' && $order_id > 0 ){
             $html .= '<br /><p>This is detail order.</p>';
@@ -51,7 +51,7 @@ function ae_debug_shortcode( $atts ) {
         ), $debug_page );
         $post_id = isset($_GET['post_id']) ? (int) $_GET['post_id'] : '';
 
-        $html = '<form class="form-inline" action="'.$action.'" method="get"><h3> Tim kiếm post </h3>
+        $html = '<form class="form-inline debugForm" action="'.$action.'" method="get"><h3> Tim kiếm post </h3>
 
           <div class="form-group mx-sm-5">
             <label for="inputPassword2" >Post ID</label>
@@ -61,7 +61,7 @@ function ae_debug_shortcode( $atts ) {
 
             <input type="number" class="form-control"  name="post_id" placeholder="Post ID" value="'.$post_id.'">
           </div>
-          <button type="submit" class="btn btn-primary mb-2">Tìm Kiếm</button>
+          <button type="submit" class="btn btn-primary btn-submit">Tìm Kiếm</button>
         </form> ';
         if( $view == 'detail' && $post_id > 0 ){
             $html .= '<br /><p>This is detail post.</p>';
