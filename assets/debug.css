@@ -13,12 +13,14 @@
 	margin: 0;
 	margin-top: 0px;
 	border-top: 1px solid #ccc;
-	padding: 15px;
+	padding: 0px 0;
 }
 .debugBoard ul li{
 	list-style: none;
 	display: block;
 	margin: 0;
+	border-bottom: 1px solid #ccc;
+	padding: 8px 0px 8px 23px;
 }
 .headerDebug{
 	display: block;
