@@ -39,9 +39,12 @@
     left: 10px;
     top: 1px;
 }
-.debugBoard li a{
-	vertical-align:baseline;
-	color: #000;
+.debugBoard li a {
+    vertical-align: baseline;
+    color: #424242;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 500;
 }
 .actDelTrack{
 	margin-left: 10px;

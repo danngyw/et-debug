@@ -7,10 +7,12 @@ function ae_debug_shortcode( $atts ) {
     ), $atts, 'bartag' );
     $debug  = isset($_GET['debug']) ? $_GET['debug'] : '';
     $view   = isset($_GET['view']) ? $_GET['view'] : '';
+    global $wpdb;
+    $debug_page = get_ae_debug_page();
 
-     $debug_page = get_ae_debug_page();
     if( $debug == 'order'){
         $order_id = isset($_GET['order_id'] ) ? (int) $_GET['order_id'] : '';
+         if($order_id < 1) $order_id = '';
 
         $action = add_query_arg( array(
             'debug' => 'order',
@@ -30,10 +32,11 @@ function ae_debug_shortcode( $atts ) {
           <button type="submit" class="btn btn-primary btn-submit">Tìm Kiếm</button>
         </form> ';
         if( $view == 'detail' && $order_id > 0 ){
-            $html .= '<br /><p>This is detail order.</p>';
+            $html .= '<br /><p><strong>Detail Order</strong></p>';
             $order_id = $_GET['order_id'];
             $order_p = get_post($order_id);
             if( $order_p && !is_wp_error($order_p) ){
+
                 $order = new AE_Order($order_id);
                 $order_data = $order->get_order_data();
                 $order_pay = $order->generate_data_to_pay();
@@ -41,6 +44,8 @@ function ae_debug_shortcode( $atts ) {
                 $output2 = print_r($order_pay, true);
                 $html.='order_data:<pre>'.$output.'</pre>';
                 $html.='order_pay: <pre>'.$output2.'</pre>';
+            } else{
+                $html.='This order is not available.';
             }
         }
         return $html;
@@ -50,12 +55,12 @@ function ae_debug_shortcode( $atts ) {
             'view' => 'detail',
         ), $debug_page );
         $post_id = isset($_GET['post_id']) ? (int) $_GET['post_id'] : '';
+        if($post_id < 1) $post_id = '';
 
         $html = '<form class="form-inline debugForm" action="'.$action.'" method="get"><h3> XEM THÔNG TIN POST</h3>
 
           <div class="form-group mx-sm-5">
             <label for="inputPassword2" >Post ID</label>
-
             <input type="hidden" name="debug" value ="post" />
             <input type="hidden" name="view" value ="detail" />
 
@@ -64,11 +69,7 @@ function ae_debug_shortcode( $atts ) {
           <button type="submit" class="btn btn-primary btn-submit">Tìm Kiếm</button>
         </form> ';
         if( $view == 'detail' && $post_id > 0 ){
-            $html .= '<br /><p>This is detail post.</p>';
-
-
-            global $wpdb;
-
+            $html .= '<br /><p><strong> Detail Post</strong></p>';
             $post = get_post($post_id);
 
             if( $post && ! is_wp_error($post) ){
@@ -86,6 +87,8 @@ function ae_debug_shortcode( $atts ) {
                 $html.='Post Meta:  <br /><pre>'.$meta_keys.'</pre>';
 
 
+            } else{
+                 $html.='This post is not available.';
             }
             return $html;
         }
