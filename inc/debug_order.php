@@ -23,4 +23,4 @@ function fre_debug_order(){
 	//$order_data = $order_pay->generate_data_to_pay();
 
 }
- add_action('wp_head','fre_debug_order');
+add_action('wp_head','fre_debug_order');

@@ -33,6 +33,9 @@
 	padding: 0px;
 	text-align: center;
 	padding: 0px;
+	position: relative;
+    left: 10px;
+    top: 1px;
 }
 .debugBoard li a{
 	vertical-align:baseline;
