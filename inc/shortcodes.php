@@ -10,6 +10,7 @@ function ae_debug_shortcode( $atts ) {
     if( $debug = 'order'){
         $debug_page = get_ae_debug_page();
 
+        
        $action = add_query_arg( array(
             'debug' => 'order',
             'view' => 'detail',

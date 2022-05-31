@@ -14,6 +14,7 @@ function debug_log($input){
 function get_ae_debug_page(){
 	$page_id = get_option('debug_id_page', false);
 	if( $page_id ){
+		//update_post_meta($page_id, '_wp_page_template', 'page-full-width.php');
 		$page_id = get_post($page_id);
 		if( $page_id && !is_wp_error($page_id))
 			return get_permalink($page_id);
