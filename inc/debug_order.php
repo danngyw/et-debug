@@ -13,7 +13,7 @@ function fre_debug_order(){
 	echo '<pre>';
 	//var_dump($order_type);
 	//var_dump($order_data);
-	var_dump($order_pay);
+	//var_dump($order_pay);
 
 	echo '</pre>';
 
