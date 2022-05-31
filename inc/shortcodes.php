@@ -10,7 +10,7 @@ function ae_debug_shortcode( $atts ) {
 
      $debug_page = get_ae_debug_page();
     if( $debug == 'order'){
-
+        $order_id = isset($_GET['order_id'] ) ? (int) $_GET['order_id'] : 0;
 
         $action = add_query_arg( array(
             'debug' => 'order',
@@ -25,11 +25,11 @@ function ae_debug_shortcode( $atts ) {
             <input type="hidden" name="debug" value ="order" />
             <input type="hidden" name="view" value ="detail" />
 
-            <input type="number" class="form-control"  name="order_id" placeholder="Order ID">
+            <input type="number" class="form-control"  name="order_id" placeholder="Order ID" value="'.$order_id.'">
           </div>
           <button type="submit" class="btn btn-primary mb-2">Tìm Kiếm</button>
         </form> ';
-        if( $view == 'detail' ){
+        if( $view == 'detail' && $order_id > 0 ){
             $html .= '<br /><p>This is detail order.</p>';
             $order_id = $_GET['order_id'];
             $order_p = get_post($order_id);
@@ -53,7 +53,7 @@ function ae_debug_shortcode( $atts ) {
 
         $html = '<form class="form-inline" action="'.$action.'" method="get"><h3> Tim kiếm post </h3>
 
-          <div class="form-group mx-sm-5 mb-5">
+          <div class="form-group mx-sm-5">
             <label for="inputPassword2" >Post ID</label>
 
             <input type="hidden" name="debug" value ="post" />
