@@ -6,10 +6,10 @@ function fre_debug_show(){
 
 	fre_debug_del_files();
 
-	$trackPaymentLink = get_track_directory('url');
-	$trackPaymentPath = get_track_directory('path');
-	$trackPaymentLink 	= home_url().'/wp-content/fre_track_payment.css';
-	$trackPaymentPath = WP_CONTENT_DIR.'/fre_track_payment.css';
+	$trackPaymentLink 		= get_track_directory('url');
+	$trackPaymentPath 		= get_track_directory('path');
+	$trackPaymentLink 		= home_url().'/wp-content/fre_track_payment.css';
+	$trackPaymentPath 		= WP_CONTENT_DIR.'/fre_track_payment.css';
 	?>
 	<script type="text/javascript">
 		function debugRemoveFile(){
@@ -25,17 +25,18 @@ function fre_debug_show(){
 			Fre Debug Tool <img src="<?php echo FRE_DEBUG_URL;?>/img/debug.jpg">
 		</div>
 		<ul>
-			<?php if(file_exists(FRE_TRACK_PAYMENT_PATH) ){ ?>
-			<li><a href="<?php echo $trackPaymentLink;?>" target="_blank"> Track Payment</a>
-				<a class="actDelTrack" href="<?php home_url();?>/?act=deltrack" target="_blank" rel="Del File" title="Delete File?" onclick="return debugRemoveFile()"> <i class="fa fa-trash" aria-hidden="true"></i></a>
-			</li>
-			<?php } ?>
+
 			<li>
 				<a href="<?php echo get_ae_debug_page();?>?debug=post" >Debug Post</a>
 			</li>
 			<li>
 				<a href="<?php echo get_ae_debug_page();?>?debug=order" >Debug Order</a>
 			</li>
+			<?php if(file_exists(FRE_TRACK_PAYMENT_PATH) ){ ?>
+				<li><a href="<?php echo $trackPaymentLink;?>" target="_blank"> Track Payment</a>
+				<a class="actDelTrack" href="<?php home_url();?>/?act=deltrack" target="_blank" rel="Del File" title="Delete File?" onclick="return debugRemoveFile()"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+				</li>
+			<?php } ?>
 
 		</ul>
 	</div>
