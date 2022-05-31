@@ -10,14 +10,14 @@ function ae_debug_shortcode( $atts ) {
 
      $debug_page = get_ae_debug_page();
     if( $debug == 'order'){
-        $order_id = isset($_GET['order_id'] ) ? (int) $_GET['order_id'] : 0;
+        $order_id = isset($_GET['order_id'] ) ? (int) $_GET['order_id'] : '';
 
         $action = add_query_arg( array(
             'debug' => 'order',
             'view' => 'detail',
         ), $debug_page );
 
-            $html = '<form class="form-inline debugForm" action="'.$action.'" method="get"><h3> Tim kiếm order</h3>
+            $html = '<form class="form-inline debugForm" action="'.$action.'" method="get"><h3> XEM THÔNG TIN ORDER</h3>
 
           <div class="form-group mx-sm-5 mb-5">
             <label for="inputPassword2" >Order ID</label>
@@ -51,7 +51,7 @@ function ae_debug_shortcode( $atts ) {
         ), $debug_page );
         $post_id = isset($_GET['post_id']) ? (int) $_GET['post_id'] : '';
 
-        $html = '<form class="form-inline debugForm" action="'.$action.'" method="get"><h3> Tim kiếm post </h3>
+        $html = '<form class="form-inline debugForm" action="'.$action.'" method="get"><h3> XEM THÔNG TIN POST</h3>
 
           <div class="form-group mx-sm-5">
             <label for="inputPassword2" >Post ID</label>
