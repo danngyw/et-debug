@@ -25,7 +25,6 @@ function fre_debug_show(){
 			Fre Debug Tool <img src="<?php echo FRE_DEBUG_URL;?>/img/debug.jpg">
 		</div>
 		<ul>
-
 			<li>
 				<a href="<?php echo get_ae_debug_page();?>?debug=post" >Debug Post</a>
 			</li>
