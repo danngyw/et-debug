@@ -19,6 +19,7 @@ define('FRE_TRACK_PAYMENT_PATH', WP_CONTENT_DIR.'/fre_track_payment.css');
 require_once FRE_DEBUG_PATH . '/inc/enque_style.php';
 require_once FRE_DEBUG_PATH . '/inc/debug_order.php';
 require_once FRE_DEBUG_PATH . '/functions.php';
+require_once FRE_DEBUG_PATH . '/inc/shortcodes.php';
 
 
 
