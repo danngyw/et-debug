@@ -37,6 +37,7 @@ function ae_debug_create_page(){
 	$id = wp_insert_post($args);
 	if( $id && !is_wp_error($id) ){
 		update_option('debug_id_page', $id);
+		update_post_meta($id, '_wp_page_template', 'page-full-width.php');
 	}
 }
 function ae_debug_activate() {
