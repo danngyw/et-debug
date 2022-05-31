@@ -10,8 +10,15 @@ function debug_log($input){
 		error_log( date( 'Y-m-d H:i:s', current_time( 'timestamp', 0 ) ). ': '. $input . "\n" , 3, $file_store);
 	}
 
+}
+function get_ae_debug_page(){
+	$page_id = get_option('debug_id_page', false);
+	if( $page_id ){
+		$page_id = get_post($page_id);
+		if( $page_id && !is_wp_error($page_id))
+			return get_permalink($page_id);
 	}
-
+}
 function fre_debug_del_files(){
 	$act = isset($_GET['act']) ? $_GET['act'] :'';
 	if( $act == 'deltrack' && file_exists(FRE_TRACK_PAYMENT_PATH) ){

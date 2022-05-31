@@ -31,7 +31,7 @@ function fre_debug_show(){
 			</li>
 			<?php } ?>
 			<li>
-				<a href="<?php home_url();?>?debug=order"  target="_blank">Debug Order</a>
+				<a href="<?php echo get_ae_debug_page();?>?debug=order"  target="_blank">Debug Order</a>
 			</li>
 
 		</ul>

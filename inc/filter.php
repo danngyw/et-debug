@@ -9,4 +9,4 @@ function filter_the_content_in_the_main_loop( $content ) {
 
     return $content;
 }
-add_filter( 'the_content', 'filter_the_content_in_the_main_loop', 999 );
+// add_filter( 'the_content', 'filter_the_content_in_the_main_loop', 999 );
