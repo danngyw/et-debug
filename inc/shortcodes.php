@@ -1,4 +1,9 @@
 <?php
+function ae_debug_selected($string, $check){
+    if( $string == $check){
+        return 'selected';
+    }
+}
 add_shortcode( 'ae_debug', 'ae_debug_shortcode' );
 function ae_debug_shortcode( $atts ) {
     $atts = shortcode_atts( array(
@@ -64,7 +69,6 @@ function ae_debug_shortcode( $atts ) {
             <label for="inputPassword2" >Post ID</label>
             <input type="hidden" name="debug" value ="post" />
             <input type="hidden" name="view" value ="detail" />
-
             <input type="number" class="form-control"  name="post_id" placeholder="Post ID" value="'.$post_id.'">
           </div>
           <button type="submit" class="btn btn-primary btn-submit">Tìm Kiếm</button>
@@ -95,23 +99,26 @@ function ae_debug_shortcode( $atts ) {
         }
         return $html;
     } else if($debug == 'viewpost'){
+        $post_type          = isset($_GET['ptype']) ? $_GET['ptype'] : 'fre_credit_history';
+        $order_selected     = ae_debug_selected($post_type, 'et_order');
+        $his_selected       = ae_debug_selected($post_type, 'fre_credit_history');
+        $project_selected   = ae_debug_selected($post_type, 'project');
+        $profile_selected   = ae_debug_selected($post_type, 'fre_profile');
          $html = '<form class="form-inline debugForm" method="get"><h3> XEM THÔNG TIN POST</h3>
 
           <div class="form-group mx-sm-5">
             <label for="inputPassword2" >Post ID</label>
             <input type="hidden" name="debug" value ="viewpost" />
             <select name="ptype">
-                <option value = "fre_credit_history"> History </option>
-                <option value = "et_order"> Order </option>
-                <option value = "project"> Projects </option>
-                <option value = "fre_profile"> Profiles </option>
-
-
+                <option '.$his_selected.' value = "fre_credit_history"> History </option>
+                <option '.$order_selected.' value = "et_order"> Order </option>
+                <option '.$project_selected.' value = "project"> Projects </option>
+                <option '.$profile_selected.' value = "fre_profile"> Profiles </option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary btn-submit">Tìm Kiếm</button>
         </form> ';
-        $post_type = isset($_GET['ptype']) ? $_GET['ptype']:'';
+
         $debug_page = get_ae_debug_page();
         if( $post_type){
             $args = array(
@@ -139,7 +146,7 @@ function ae_debug_shortcode( $atts ) {
 
                 }
                 $html.='</table>';
-            }else{
+            } else {
                 $html.='No posts found.';
             }
             wp_reset_query();
