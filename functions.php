@@ -1,14 +1,14 @@
 <?php
 
 function get_all_ptypes(){
-	return array('projets' => 'Projects','fre_profile' =>'Profiles','fre_credit_history' => 'History','et_order' => 'Orders');
+	return array('projet' => 'Projects','fre_profile' =>'Profiles','fre_credit_history' => 'History','et_order' => 'Orders');
 }
 function debug_btn_del(){
 	$types = get_all_ptypes();
 	ob_start();
-	foreach($types as $label=> $key){
+	foreach($types as $key=> $label){
 		?>
-		<a href="actDelAll">Del <?php echo $key;?> </a> |
+		<a class="actDelAll" href="#" ptype="<?php echo $key;?>">Del <?php echo $label;?> </a> |
 		<?php
 	}
 	return ob_get_clean();

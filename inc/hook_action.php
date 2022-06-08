@@ -24,30 +24,32 @@ function fre_debug_show(){
 							},
 							success: function (response) {
 							console.log('OK.');
-						}
-					});
-				    return false
+							}
+						});
 					}
+					return false
 				});
 				$(".actDelAll").click(function(event){
-
-				if (confirm("Delete This file?") == true) {
-				  	jQuery.ajax({
-						url: ae_globals.ajaxURL,
-						method: 'GET',
-						data: {
-							action: 'delete_all',
-						},
-						beforeSend: function () {
-							console.log('123');
-						},
-						success: function (response) {
-						console.log('OK.');
+					var ptype = $(this).attr("ptype");
+					console.log(ptype);
+					if (confirm("Delete Post type?") == true) {
+					  	jQuery.ajax({
+							url: ae_globals.ajaxURL,
+							method: 'GET',
+							data: {
+								action: 'delete_posts',
+								ptype: ptype,
+							},
+							beforeSend: function () {
+								console.log('123');
+							},
+							success: function (response) {
+								console.log('OK.');
+							}
+						});
 					}
+					return false
 				});
-			    return false
-				}
-			});
 			});
 		})(jQuery);
 	</script>
