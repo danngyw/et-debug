@@ -115,15 +115,20 @@ function ae_debug_shortcode( $atts ) {
                 <option '.$project_selected.' value = "project"> Projects </option>
                 <option '.$profile_selected.' value = "fre_profile"> Profiles </option>
             </select>
+            <button type="submit" class="btn btn-primary btn-submit">Tìm Kiếm</button>
           </div>
-          <button type="submit" class="btn btn-primary btn-submit">Tìm Kiếm</button>
+
+           <div class="form-group mx-sm-5 debug-btn-del">
+          '.debug_btn_del().'
+          </div>
         </form> ';
 
         $debug_page = get_ae_debug_page();
         if( $post_type){
             $args = array(
-                'post_type' => $post_type,
-                'post_status' => 'all',
+                'post_type'         => $post_type,
+                'post_status'       => 'all',
+                'posts_per_page'    => -1,
             );
             $query = new WP_Query($args);
             if( $query->have_posts() ){

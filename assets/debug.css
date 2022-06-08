@@ -109,3 +109,11 @@
   background-color: #04AA6D;
   color: white;
 }
+.debug-btn-del{
+  margin-left: 50px;
+}
+.debug-btn-del a{
+  color: #ccc;
+  margin-right: 10px;
+  color: #16692b;
+}

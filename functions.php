@@ -1,5 +1,18 @@
 <?php
 
+function get_all_ptypes(){
+	return array('projets' => 'Projects','fre_profile' =>'Profiles','fre_credit_history' => 'History','et_order' => 'Orders');
+}
+function debug_btn_del(){
+	$types = get_all_ptypes();
+	ob_start();
+	foreach($types as $label=> $key){
+		?>
+		<a href="actDelAll">Del <?php echo $key;?> </a> |
+		<?php
+	}
+	return ob_get_clean();
+}
 function debug_log($input){
 
 	$file_store = WP_CONTENT_DIR.'/debug_log.css';
