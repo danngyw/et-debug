@@ -20,7 +20,7 @@ require_once FRE_DEBUG_PATH . '/inc/enque_style.php';
 require_once FRE_DEBUG_PATH . '/inc/debug_order.php';
 require_once FRE_DEBUG_PATH . '/functions.php';
 require_once FRE_DEBUG_PATH . '/inc/shortcodes.php';
-require_once FRE_DEBUG_PATH . '/ajax.php';
+require_once FRE_DEBUG_PATH . '/inc/ajax.php';
 
 
 /**

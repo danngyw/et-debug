@@ -3,36 +3,34 @@
 function fre_debug_show(){
 
 	global $wpdb;
-
-	fre_debug_del_files();
-
 	// $trackPaymentLink 	= get_track_directory('url');
 	// $trackPaymentPath 	= get_track_directory('path');
 	$trackPaymentLink 		= home_url().'/wp-content/fre_track_payment.css';
 	$trackPaymentPath 		= WP_CONTENT_DIR.'/fre_track_payment.css';
 	?>
 	<script type="text/javascript">
-		function debugRemoveFile(){
-
-			if (confirm("Delete This file?") == true) {
-
-			  	$.ajax({
-					url: ae_globals.ajaxURL,
-					method: 'GET',
-					data: {
-						action: 'delete_track',
-					},
-					beforeSend: function () {
-						console.log('123');
-					},
-					success: function (response) {
+		(function($){
+			$(document).ready(function() {
+			$(".actDelTrack").click(function(){
+				if (confirm("Delete This file?") == true) {
+				  	jQuery.ajax({
+						url: ae_globals.ajaxURL,
+						method: 'GET',
+						data: {
+							action: 'delete_track',
+						},
+						beforeSend: function () {
+							console.log('123');
+						},
+						success: function (response) {
 						console.log('OK.');
 					}
 				});
-			    return true
-			}
-			return false;
-		}
+			    return false
+				}
+			});
+			});
+		})(jQuery);
 	</script>
 	<div class="debugBoard">
 		<div class="headerDebug">
@@ -48,7 +46,8 @@ function fre_debug_show(){
 			<?php if(file_exists(FRE_TRACK_PAYMENT_PATH) ){ ?>
 				<li>
 					<a href="<?php echo $trackPaymentLink;?>" target="_blank"> Track Payment</a>
-					<a class="actDelTrack" href="<?php home_url();?>" target="_blank" rel="Del File" title="Delete File?" onclick="return debugRemoveFile()"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+					<a class="actDelTrack" href="<?php home_url();?>"  rel="Del File" title="Delete File?" >
+						<i class="fa fa-trash" aria-hidden="true"></i></a>
 				</li>
 			<?php } ?>
 
