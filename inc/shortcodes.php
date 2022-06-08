@@ -112,6 +112,7 @@ function ae_debug_shortcode( $atts ) {
           <button type="submit" class="btn btn-primary btn-submit">Tìm Kiếm</button>
         </form> ';
         $post_type = isset($_GET['ptype']) ? $_GET['ptype']:'';
+        $debug_page = get_ae_debug_page();
         if( $post_type){
             $args = array(
                 'post_type' => $post_type,
@@ -120,12 +121,19 @@ function ae_debug_shortcode( $atts ) {
             $query = new WP_Query($args);
             if( $query->have_posts() ){
                 while($query->have_posts() ){
+                    $link = add_query_arg(array(
+                        'debug' => 'post',
+                        'view'=> 'detail',
+                        'post_id'=> $post->ID),
+                        $debug_page);
+
                     $query->the_post();
+                    $link_html = '<a href="'.$link.'" target="_blank" >View</a>';
                     global $post;
                     $html .='<table>';
                     $html.='<thead><tr><td> ID</td><td> Title </td><td> Date</td><td> Action</td></thead>';
                     $html.='<tr><td>'.$post->ID.'</td><td>'.$post->post_title.'</td><td>'.$post->post_date.'</td>';
-                    $html.='<td> <a href="'.$link.'" >View</a></td>'
+                    $html.='<td>'.$link_html.' </td>';
                     $html.='</tr>';
                     $html.='</table>';
                 }
