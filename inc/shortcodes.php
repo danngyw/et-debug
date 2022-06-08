@@ -133,7 +133,7 @@ function ae_debug_shortcode( $atts ) {
             $query = new WP_Query($args);
             if( $query->have_posts() ){
                 $html .='<table id="listPost">';
-                    $html.='<thead><tr><td> ID</td><td> Title </td><td> Author</td><td> Date</td><td> Status</td><td> Action</td></thead>';
+                    $html.='<thead><tr><td> ID</td><td> Title </td><td> Author</td><td> Post Parent</td><td> Date</td><td> Status</td><td> Action</td></thead>';
                 while($query->have_posts() ){
 
                     $query->the_post();
@@ -145,7 +145,8 @@ function ae_debug_shortcode( $atts ) {
                         'post_id'=> $post->ID),
                         $debug_page);
                     $link_html = '<a href="'.$link.'" target="_blank" >View</a>';
-                    $html.='<tr><td>'.$post->ID.'</td><td>'.$post->post_title.'</td><td>'.$post->post_author.'</td><td>'.$post->post_date.'</td>';
+                    $html.='<tr><td>'.$post->ID.'</td><td>'.$post->post_title.'</td><td>'.$post->post_author.'</td>';
+                    $html.='<td>'.$post->post_parent.'</td><td>'.$post->post_date.'</td>';
                     $html.='<td>'.$post->post_status.'</td><td>'.$link_html.' </td>';
                     $html.='</tr>';
 
