@@ -8,8 +8,8 @@ action: ae-sync-order
 => Call method: sync_order => add_hook ae_after_update_order
 
 
-  $history_id = $order->post_parent;
-    $post_history = get_post($history_id);
-    et_track_payment('History:');
-    et_track_payment($history_id);
-    if($post_history->post_type == 'fre_credit_history'){
+$history_id = $order->post_parent;
+$post_history = get_post($history_id);
+et_track_payment('History:');
+et_track_payment($history_id);
+if($post_history->post_type == 'fre_credit_history'){

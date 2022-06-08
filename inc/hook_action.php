@@ -43,6 +43,9 @@ function fre_debug_show(){
 			<li>
 				<a href="<?php echo get_ae_debug_page();?>?debug=order" >Debug Order</a>
 			</li>
+			<li>
+				<a href="<?php echo get_ae_debug_page();?>?debug=viewpost" >View Post</a>
+			</li>
 			<?php if(file_exists(FRE_TRACK_PAYMENT_PATH) ){ ?>
 				<li>
 					<a href="<?php echo $trackPaymentLink;?>" target="_blank"> Track Payment</a>

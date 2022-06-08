@@ -94,6 +94,47 @@ function ae_debug_shortcode( $atts ) {
             return $html;
         }
         return $html;
+    } else if($debug == 'viewpost'){
+         $html = '<form class="form-inline debugForm" method="get"><h3> XEM THÔNG TIN POST</h3>
+
+          <div class="form-group mx-sm-5">
+            <label for="inputPassword2" >Post ID</label>
+            <input type="hidden" name="debug" value ="viewpost" />
+            <select name="ptype">
+                <option value = "fre_credit_history"> History </option>
+                <option value = "et_order"> Order </option>
+                <option value = "project"> Projects </option>
+                <option value = "fre_profile"> Profiles </option>
+
+
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">Tìm Kiếm</button>
+        </form> ';
+        $post_type = isset($_GET['ptype']) ? $_GET['ptype']:'';
+        if( $post_type){
+            $args = array(
+                'post_type' => $post_type,
+                'post_status' => 'all',
+            );
+            $query = new WP_Query($args);
+            if( $query->have_posts() ){
+                while($query->have_posts() ){
+                    $query->the_post();
+                    global $post;
+                    $html .='<table>';
+                    $html.='<thead><tr><td> ID</td><td> Title </td><td> Date</td><td> Action</td></thead>';
+                    $html.='<tr><td>'.$post->ID.'</td><td>'.$post->post_title.'</td><td>'.$post->post_date.'</td>';
+                    $html.='<td> <a href="'.$link.'" >View</a></td>'
+                    $html.='</tr>';
+                    $html.='</table>';
+                }
+            }else{
+                $html.='No posts found.';
+            }
+            wp_reset_query();
+        }
+        return $html;
     }
     return "foo = {$atts['foo']}";
 }
