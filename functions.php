@@ -21,8 +21,11 @@ function get_ae_debug_page(){
 	}
 }
 function fre_debug_del_files(){
-	$act = isset($_REQUEST['act']) ? $_REQUEST['act'] :'';
-	if( $act == 'deltrack' && file_exists(FRE_TRACK_PAYMENT_PATH) ){
+	$act = isset($_REQUEST['action']) ? $_REQUEST['action'] :'';
+
+	if( $act == 'delete_track' && file_exists(FRE_TRACK_PAYMENT_PATH) ){
 		unlink(FRE_TRACK_PAYMENT_PATH);
+	} else{
+		var_dump(' File not exist.');
 	}
 }
