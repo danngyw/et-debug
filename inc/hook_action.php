@@ -11,13 +11,32 @@ function fre_debug_show(){
 	<script type="text/javascript">
 		(function($){
 			$(document).ready(function() {
-			$(".actDelTrack").click(function(){
+				$(".actDelTrack").click(function(){
+					if (confirm("Delete This file?") == true) {
+					  	jQuery.ajax({
+							url: ae_globals.ajaxURL,
+							method: 'GET',
+							data: {
+								action: 'delete_track',
+							},
+							beforeSend: function () {
+								console.log('123');
+							},
+							success: function (response) {
+							console.log('OK.');
+						}
+					});
+				    return false
+					}
+				});
+				$(".actDelAll").click(function(event){
+
 				if (confirm("Delete This file?") == true) {
 				  	jQuery.ajax({
 						url: ae_globals.ajaxURL,
 						method: 'GET',
 						data: {
-							action: 'delete_track',
+							action: 'delete_all',
 						},
 						beforeSend: function () {
 							console.log('123');
