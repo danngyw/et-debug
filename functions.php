@@ -1,7 +1,7 @@
 <?php
 
 function get_all_ptypes(){
-	return array('projet' => 'Projects','fre_profile' =>'Profiles','fre_credit_history' => 'History','et_order' => 'Orders');
+	return array('project' => 'Projects','fre_profile' =>'Profiles','fre_credit_history' => 'History','et_order' => 'Orders');
 }
 function debug_btn_del(){
 	$types = get_all_ptypes();
