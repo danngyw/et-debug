@@ -16,7 +16,7 @@ function ae_debug_shortcode( $atts ) {
 
         $action = add_query_arg( array(
             'debug' => 'order',
-            'view' => 'detail',
+            'view'  => 'detail',
         ), $debug_page );
 
             $html = '<form class="form-inline debugForm" action="'.$action.'" method="get"><h3> XEM THÔNG TIN ORDER</h3>
@@ -38,9 +38,10 @@ function ae_debug_shortcode( $atts ) {
             if( $order_p && !is_wp_error($order_p) ){
 
                 $order = new AE_Order($order_id);
+
                 $order_data = $order->get_order_data();
                 $order_pay = $order->generate_data_to_pay();
-                $output = print_r($order_data, true);
+                $output     = print_r($order_data, true);
                 $output2 = print_r($order_pay, true);
                 $html.='order_data:<pre>'.$output.'</pre>';
                 $html.='order_pay: <pre>'.$output2.'</pre>';
