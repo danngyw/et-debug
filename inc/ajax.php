@@ -21,11 +21,10 @@ function ae_debug_del_posts(){
 	global $wpdb;
 	if( $ptype ){
 		$sql = $wpdb->prepare("SELECT * FROM $wpdb->posts where post_type = %s", $ptype);
-		echo $sql;
 		$results = $wpdb->get_results($sql);
-		var_dump($results);
+
 		foreach($results as $post){
-			var_dump($post->ID);
+			wp_delete_post($post->ID, true);
 		}
 	}
 
